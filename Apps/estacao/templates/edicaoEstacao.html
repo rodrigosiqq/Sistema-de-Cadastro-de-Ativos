@@ -15,8 +15,8 @@
         <b>Editar Estação de trabalho</b>
         <div class="card">
             <div class="card-body">
-                <form action="/editarEstacao/" method="POST">{% csrf_token %}
-                    {% comment %} <div hidden id="ident" name="ident" value="{{estacao.identificador}}"></div> {% endcomment %}
+                <form action="/editarEstacao/{{estacao.identificador}}" method="POST">{% csrf_token %}
+                    <div hidden id="ident" name="ident" value="{{estacao.identificador}}"></div>
                     <div class="form-group">
                         
                         <input disabled type="text" id="txtident" class="form-control" name="txtident" value="{{estacao.identificador}}" placeholder="nome">

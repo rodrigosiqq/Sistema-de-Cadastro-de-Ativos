@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import EstacaoTrabalho
 
 
+
 # Create your views here.
 def home(request):
     ativos = EstacaoTrabalho.objects.all()
@@ -29,7 +30,6 @@ def editarEstacao(request, identificador):
     estacao.modelo = request.POST['txtmodelo']
     estacao.serial = request.POST['txtserial']
     estacao.setor = request.POST['txtsetor'] 
-    # estacao = EstacaoTrabalho.objects.update_or_create(identificador=id, nome=nome, modelo=modelo, serial=serial, setor=setor)
     estacao.save()
     return redirect('/')
     
