@@ -21,20 +21,18 @@ def edicaoEstacao(request, identificador):
     return render(request, "edicaoEstacao.html", {"estacao": estacao})
     
 
-def editarEstacao(request):
-    nome = request.POST['txtNome']  
-    modelo = request.POST['txtmodelo']
-    serial = request.POST['txtserial']
-    setor = request.POST['txtsetor']
+def editarEstacao(request, identificador):
     
-    estacao = EstacaoTrabalho.objects.get(nome=nome)
-    estacao.nome=nome
-    estacao.modelo=modelo
-    estacao.serial=serial
-    estacao.setor=setor
+    estacao = EstacaoTrabalho.objects.get(identificador=identificador)
+    
+    estacao.nome = request.POST['txtNome']
+    estacao.modelo = request.POST['txtmodelo']
+    estacao.serial = request.POST['txtserial']
+    estacao.setor = request.POST['txtsetor'] 
+    # estacao = EstacaoTrabalho.objects.update_or_create(identificador=id, nome=nome, modelo=modelo, serial=serial, setor=setor)
     estacao.save()
-    
     return redirect('/')
+    
         
 
 

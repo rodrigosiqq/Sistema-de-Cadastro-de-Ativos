@@ -9,11 +9,17 @@
 {% block body %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
+        <br>
+        <br>
+        <br>
         <b>Editar Estação de trabalho</b>
         <div class="card">
             <div class="card-body">
                 <form action="/editarEstacao/" method="POST">{% csrf_token %}
+                    {% comment %} <div hidden id="ident" name="ident" value="{{estacao.identificador}}"></div> {% endcomment %}
                     <div class="form-group">
+                        
+                        <input disabled type="text" id="txtident" class="form-control" name="txtident" value="{{estacao.identificador}}" placeholder="nome">
                         <input type="text" id="txtNome" class="form-control" name="txtNome" value="{{estacao.nome}}" placeholder="nome">
                     </div>
                     <br>
